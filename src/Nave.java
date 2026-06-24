@@ -13,4 +13,5 @@ public class Nave {
     public TipoNave getNave() {return nave;}
     public int getVida() {return vida;}
     public int getCargaBodegaActual() {return cargaBodegaActual;}
+    public void reparar(int recuperacionVida){this.vida += recuperacionVida;};
 }

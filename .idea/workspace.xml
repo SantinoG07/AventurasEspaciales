@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc5e3e58-2dc0-4398-8990-251291a32f6f" name="Changes" comment="Commit Inicial">
+      <change afterPath="$PROJECT_DIR$/src/BaseEspacial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Juego.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Recurso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TipoPlaneta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/Aleatorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Planeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Planeta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,7 +50,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SantinoG07/AventurasEspaciales.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:SantinoG07/AventurasEspaciales.git&quot;,
     &quot;accountId&quot;: &quot;40f8c73d-c8ed-4df5-b0a9-7d80cf02d308&quot;
   }
 }</component>
