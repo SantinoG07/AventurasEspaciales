@@ -1,8 +1,8 @@
 package Utilities;
 
-public class Aleatorio {
+public class Random {
 
-    private Aleatorio(){}
+    private Random(){}
 
     public static int generarEntero(int min,int max){
         return (int)(Math.random()*(max-min+1)+min);

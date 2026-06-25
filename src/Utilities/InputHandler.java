@@ -4,7 +4,7 @@ package Utilities;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Entrada {
+public class InputHandler {
 
     private Scanner s = new Scanner(System.in);
 

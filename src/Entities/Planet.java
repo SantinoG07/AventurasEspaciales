@@ -1,17 +1,22 @@
-import Utilities.Aleatorio;
-import Utilities.Entrada;
+package Entities;
 
-public class Planeta {
+import Enums.Resource;
+import Enums.PlanetType;
+import Utilities.Random;
+import Utilities.InputHandler;
 
-    private TipoPlaneta planeta;
-    private Recurso[] recursosGenerados;
+public class Planet {
+    private PlanetType planeta;
+    private Resource[] recursosGenerados;
 
-    public Planeta(TipoPlaneta planeta){
+    public Planet(PlanetType planeta){
         this.planeta = planeta;
     }
 
-    public Recurso generarRecurso(){
-        int prob= Aleatorio.generarEntero(100);
+
+    //FUNCIONES DE PLANET.
+    public Resource generarRecurso(){
+        int prob= Random.generarEntero(100);
         if(prob<= planeta.getProbabilidades()[0]){
             return planeta.getRecursos()[0];
         } else if (prob<= planeta.getProbabilidades()[1]) {
@@ -22,7 +27,7 @@ public class Planeta {
         return null;
     }
 
-    public int mostrarMenu(Entrada e){
+    public int mostrarMenu(InputHandler e){
         System.out.println("Bienvenido a "+ planeta.getNombre());
         System.out.println("Seleccione alguna de las siguientes opciones!");
         System.out.println("1. Minar");
@@ -32,12 +37,9 @@ public class Planeta {
         return opc;
     }
 
-    public void setTipoPlaneta(TipoPlaneta tipo){this.planeta = tipo;}
 
-
-
-
-
+    //SETTERS.
+    public void setTipoPlaneta(PlanetType tipo){this.planeta = tipo;}
 
 
 }
