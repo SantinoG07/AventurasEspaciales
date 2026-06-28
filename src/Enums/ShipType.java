@@ -16,14 +16,13 @@ public enum ShipType {
         this.capacidadCarga = capacidadCarga;
     }
 
+    //GETTERS.
     public String getNombre() {
         return nombre;
     }
-
     public Velocity getVelocidad() {
         return velocity;
     }
-
     public int getCapacidadCarga() {
         return capacidadCarga;
     }

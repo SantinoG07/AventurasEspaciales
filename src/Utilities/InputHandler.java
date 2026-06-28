@@ -1,6 +1,4 @@
 package Utilities;
-
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,7 +9,6 @@ public class InputHandler {
     public int ingresarEntero(int min, int max){
         int opc = 0;
         boolean error = false;
-
         do {
             error = false;
             System.out.println("Ingrese una opción entre "+min+" y "+max+":");
@@ -28,9 +25,7 @@ public class InputHandler {
                 s.nextLine();
             }
         } while(error);
-
         return opc;
-
     }
 
     public String ingresarTexto(){

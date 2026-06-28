@@ -3,6 +3,7 @@ package Entities;
 import Enums.Resource;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CargoHold {
     private int espacioNaveInicial;
@@ -43,6 +44,14 @@ public class CargoHold {
             resources.remove(r);
         }
         return precioBodega;
+    }
+    
+    public HashMap contabilizacionResources(){
+        HashMap<Resource, Integer> cantidades = new HashMap<>();
+        for (Resource r : resources){
+            cantidades.put(r, cantidades.getOrDefault(r,0)+1); //El getOrDefault, hace que si r no tiene un valor usa 0 default
+        }
+        return cantidades;
     }
 
     //GETTERS.

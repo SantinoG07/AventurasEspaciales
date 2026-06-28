@@ -10,6 +10,7 @@ public enum Velocity {
         this.peligroEspacial = peligroEspacial;
     };
 
+    //GETTERS.
     public double getPeligroEspacial() {
         return peligroEspacial;
     }

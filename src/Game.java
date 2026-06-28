@@ -52,7 +52,7 @@ public class Game {
                 SpaceBase.venderRecurso(ship.getBodega(), e, player);
                 break;
             case 4:
-                //BaseEspacial.verMisionesDisponibles();
+                SpaceBase.mostrarMisiones(player);
                 break;
             case 5:
                 entregarRecursosMision();
@@ -93,11 +93,6 @@ public class Game {
                 break;
         }
     };
-
-
-    //FUNCIONES DE MISION.
-    private void entregarRecursosMision(){}
-
 
     //FUNCIONES DE PLANETAS.
     private void viajarPlaneta(){

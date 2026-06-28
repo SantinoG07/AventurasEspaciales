@@ -10,27 +10,22 @@ public enum Resource {
     OBSIDIANA("Obsidiana", 25, 50);
 
    private String nombre;
-
-    public int getValorVenta() {
-        return valorVenta;
-    }
-
-    public int getPeso() {
-        return peso;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    private int peso, valorVenta;
-
-
-    //GETTERS.
+   private int peso, valorVenta;
 
     Resource(String nombre, int peso, int valorVenta){
         this.nombre = nombre;
         this.peso = peso;
         this.valorVenta = valorVenta;
+    }
+
+    //GETTERS.
+    public int getValorVenta() {
+        return valorVenta;
+    }
+    public int getPeso() {
+        return peso;
+    }
+    public String getNombre() {
+        return nombre;
     }
 }
