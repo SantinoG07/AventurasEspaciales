@@ -4,6 +4,10 @@ import Entities.Planet;
 import Enums.Resource;
 import Enums.ShipType;
 import Enums.PlanetType;
+import SpaceDanger.CosmicStorm;
+import SpaceDanger.Renegade;
+import SpaceDanger.SpaceDanger;
+import SpaceDanger.SpacePirate;
 import Utilities.Random;
 import Utilities.InputHandler;
 
@@ -33,7 +37,7 @@ public class Game {
         do{
             salida = iniciarAccion(base.mostrarMenu(e), e, player, ship);
         }while(!salida);
-
+        player.mostrarDatosFinales();
         e.cerrarScanner();
     }
 
@@ -43,6 +47,12 @@ public class Game {
             case 1:
                 viajarPlaneta();
                 int opcPlaneta = planet.mostrarMenu(e);
+                generarPeligroEspacial(ship);
+                if (ship.getVida() <= 0) {
+                    System.out.println("Resultado: ");
+                    System.out.println("Derrota");
+                    return true;
+                }
                 iniciarAccionPlaneta(opcPlaneta, player, ship);
                 break;
             case 2:
@@ -55,7 +65,7 @@ public class Game {
                 SpaceBase.mostrarMisiones(player);
                 break;
             case 5:
-                entregarRecursosMision();
+               SpaceBase.entregarRecursosMision(player, e);
                 break;
             case 6:
                 SpaceBase.repararNave(player, e);
@@ -65,9 +75,33 @@ public class Game {
                 System.out.println("El jugador ha restaurado su vida al 100%");
                 break;
             case 8:
+                System.out.println("Resultado: ");
+                System.out.println("Salida voluntaria");
                 return true;
         }
         return false;
+    }
+
+    private void generarPeligroEspacial(Ship ship) {
+        SpaceDanger spaceDanger;
+        SpacePirate spacePirate;
+        Renegade renegade;
+        CosmicStorm cosmicStorm;
+        double peligro = Random.generarDouble(0, 1);
+        if(ship.getNave().getVelocidad().getPeligroEspacial() > peligro){
+            int numPeligro = Random.generarEntero(1, 3);
+            switch (numPeligro){
+                case 1 : spaceDanger= new SpacePirate(ship);
+                    spaceDanger.atacarNave(ship);
+                    break;
+                case 2: spaceDanger = new Renegade(ship);
+                    spaceDanger.atacarNave(ship);
+                    break;
+                case 3: spaceDanger = new CosmicStorm(ship);
+                    spaceDanger.atacarNave(ship);
+                    break;
+            }
+        }
     }
 
     private void iniciarAccionPlaneta(int opcPlaneta, Player player, Ship ship){

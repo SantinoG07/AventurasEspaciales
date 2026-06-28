@@ -22,6 +22,9 @@ public class Ship {
         cargoHold.agregarABodega(resource);
     }
 
+    public void recibirDanio(double hacerdanio){
+        this.vida -= hacerdanio;
+    }
 
     //GETTERS.
     public ShipType getNave() {return nave;}

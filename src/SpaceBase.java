@@ -5,6 +5,7 @@ import Enums.MissionsType;
 import Enums.Resource;
 import Utilities.InputHandler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SpaceBase {
@@ -19,18 +20,32 @@ public class SpaceBase {
 
     //MUESTREO DE MENU.
     public int mostrarMenu(InputHandler e){
-        System.out.println("Bienvenido a la base espacial");
-        System.out.println("Seleccione alguna de las siguientes opciones!");
-        System.out.println("1. Viajar a un planeta");
-        System.out.println("2. Ver bodega de carga");
-        System.out.println("3. Vender recursos");
-        System.out.println("4. Ver misiones disponibles");
-        System.out.println("5. Entregar recursos para una misión");
-        System.out.println("6. Reparar nave");
-        System.out.println("7. Descansar");
-        System.out.println("8. Salir del juego");
-        int opc = e.ingresarEntero(1,8);
+        int opc = 0;
+        if(chequearVictoria(player)){
+            opc = 8;
+        } else {
+            System.out.println("Bienvenido a la base espacial");
+            System.out.println("Seleccione alguna de las siguientes opciones!");
+            System.out.println("1. Viajar a un planeta");
+            System.out.println("2. Ver bodega de carga");
+            System.out.println("3. Vender recursos");
+            System.out.println("4. Ver misiones disponibles");
+            System.out.println("5. Entregar recursos para una misión");
+            System.out.println("6. Reparar nave");
+            System.out.println("7. Descansar");
+            System.out.println("8. Salir del juego");
+            opc = e.ingresarEntero(1,8);
+        }
         return opc;
+    }
+
+    private boolean chequearVictoria(Player player) {
+        ArrayList<MissionsType> missions = player.getMission();
+        int cantCompletada = 0;
+        for (MissionsType m :missions) {
+            if(m.getMisionPendiente()) cantCompletada++;
+        }
+        return cantCompletada == 3;
     }
 
     //FUNCIONES DE SPACE BASE;
@@ -85,7 +100,7 @@ public class SpaceBase {
         }
     }
 
-    private void entregarRecursosMision(Ship ship, Player player, InputHandler input){
+    public static void entregarRecursosMision(Player player, InputHandler input){
         int opc=0;
         do{
             System.out.println("Seleccione la mision que quiera entregar recursos");
@@ -106,7 +121,7 @@ public class SpaceBase {
         }while(opc!=2);
     }
 
-    private void eliminarRecursosMission(int indexMission){
+    private static void eliminarRecursosMission(int indexMission){
         for (int i = 0; i < MissionsType.values()[indexMission].getResources().length; i++) {
             int cantidadEliminar = MissionsType.values()[indexMission].getCantidadResources()[i];
             Resource resourceEliminar = MissionsType.values()[indexMission].getResources()[i];
@@ -117,7 +132,7 @@ public class SpaceBase {
         }
     };
 
-    private boolean verificarResourcesDisponibles(Player player, MissionsType mission){
+    private static boolean verificarResourcesDisponibles(Player player, MissionsType mission){
         HashMap<Resource, Integer> cantidades = ship.getBodega().contabilizacionResources();
 
         for (int i = 0; i < mission.getResources().length; i++) {
