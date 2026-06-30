@@ -8,6 +8,7 @@ import SpaceDanger.CosmicStorm;
 import SpaceDanger.Renegade;
 import SpaceDanger.SpaceDanger;
 import SpaceDanger.SpacePirate;
+import Utilities.Print;
 import Utilities.Random;
 import Utilities.InputHandler;
 
@@ -20,8 +21,8 @@ public class Game {
 
     public void iniciar(){
         //Mensajes de comienzo.
-        System.out.println("Bienvenido al juego Aventuras espaciales!");
-        System.out.println("Presione enter para comenzar.");
+        Print.amarillo("Bienvenido al juego Aventuras espaciales!");
+        Print.amarillo("Presione enter para comenzar.");
         e.esperarEnter();
 
         //Inicializacion de entidades.
@@ -31,6 +32,7 @@ public class Game {
 
         //Muestreo de info general.
         mostrarInformacionGeneral(player, ship);
+        e.esperarEnter();
 
         //Inicializacion del menu.
         boolean salida;
@@ -53,7 +55,7 @@ public class Game {
                     System.out.println("Derrota");
                     return true;
                 }
-                iniciarAccionPlaneta(opcPlaneta, player, ship);
+                iniciarAccionPlaneta(opcPlaneta, player, ship, planet);
                 break;
             case 2:
                 System.out.println(ship.getBodega().getEspacioUsado());
@@ -104,16 +106,17 @@ public class Game {
         }
     }
 
-    private void iniciarAccionPlaneta(int opcPlaneta, Player player, Ship ship){
+    private void iniciarAccionPlaneta(int opcPlaneta, Player player, Ship ship, Planet planet){
         switch (opcPlaneta){
             case 1:
                 int energiaNecesaria = Random.generarEntero(10,25);
                 if(player.getEnergia()-energiaNecesaria>0){
+                    Print.rojo(planet.generarRecurso().getNombre());
                     Resource rec = planet.generarRecurso();
                     if(rec.getPeso() + ship.getBodega().getEspacioUsado() > ship.getBodega().getEspacioNaveInicial()){
                         player.minar(energiaNecesaria);
                         ship.almacenarRecurso(rec);
-                        System.out.println("Enums.Recurso recolectado! "+rec.getNombre());
+                        System.out.println("Recurso recolectado! "+rec.getNombre());
                     }else{
                         System.out.println("El espacio de la bodega es insuficiente!");
                     }
@@ -132,23 +135,24 @@ public class Game {
     private void viajarPlaneta(){
         System.out.println("Seleccione uno de los planetas a viajar:");
         for (int i = 0; i < PlanetType.values().length; i++) {
-            System.out.println(i+ PlanetType.values()[i].getNombre());
+            Print.keyAzul(Integer.toString(i+1)+". ", PlanetType.values()[i].getNombre());
         }
-        int numPlaneta = e.ingresarEntero(0, PlanetType.values().length);
-        planet.setTipoPlaneta(PlanetType.values()[numPlaneta]);
+        int numPlaneta = e.ingresarEntero(1, PlanetType.values().length);
+        planet=null;
+        planet= new Planet(PlanetType.values()[numPlaneta-1]);
     }
 
 
     //FUNCIONES PARA MOSTRAR INFORMACION.
     private void mostrarInformacionGeneral(Player player, Ship ship) {
-        System.out.println("Nombre jugador: "+ player.getNombre());
-        System.out.println("Energia jugador: "+ player.getEnergia());
-        System.out.println("Creditos jugador: "+ player.getCreditos());
-        System.out.println("Nombre nave: "+ ship.getNave().getNombre());
-        System.out.println("Enums.Velocidad nave: "+ ship.getNave().getVelocidad());
-        System.out.println("Vida nave: "+ ship.getVida());
-        System.out.println("Capacidad de carga nave: "+ ship.getNave().getCapacidadCarga());
-        System.out.println("Carga actual nave: "+ ship.getBodega().getEspacioUsado());
+        Print.keyAzul("Nombre jugador: ", player.getNombre());
+        Print.keyAzul("Energia jugador: ", player.getEnergia());
+        Print.keyAzul("Creditos jugador: ", player.getCreditos());
+        Print.keyAzul("Nombre nave: ", ship.getNave().getNombre());
+        Print.keyAzul("Enums.Velocidad nave: ", ship.getNave().getVelocidad());
+        Print.keyAzul("Vida nave: ", ship.getVida());
+        Print.keyAzul("Capacidad de carga nave: ", ship.getNave().getCapacidadCarga());
+        Print.keyAzul("Carga actual nave: ", ship.getBodega().getEspacioUsado());
     }
 
 
@@ -160,9 +164,9 @@ public class Game {
     }
 
     private ShipType crearNave(InputHandler e) {
-        System.out.println("Seleccione su nave para la aventura!");
+        Print.naranja("Seleccione su nave para la aventura!");
         for (int i = 0; i < ShipType.values().length; i++) {
-            System.out.println((i+1)+ ". "+ ShipType.values()[i]);
+            Print.keyVerde((i+1)+ ". ", ShipType.values()[i]);
         }
         return switch (e.ingresarEntero(1, ShipType.values().length)-1) {
             case 1 -> ShipType.values()[1];

@@ -4,6 +4,7 @@ import Entities.Ship;
 import Enums.MissionsType;
 import Enums.Resource;
 import Utilities.InputHandler;
+import Utilities.Print;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,16 +25,16 @@ public class SpaceBase {
         if(chequearVictoria(player)){
             opc = 8;
         } else {
-            System.out.println("Bienvenido a la base espacial");
-            System.out.println("Seleccione alguna de las siguientes opciones!");
-            System.out.println("1. Viajar a un planeta");
-            System.out.println("2. Ver bodega de carga");
-            System.out.println("3. Vender recursos");
-            System.out.println("4. Ver misiones disponibles");
-            System.out.println("5. Entregar recursos para una misión");
-            System.out.println("6. Reparar nave");
-            System.out.println("7. Descansar");
-            System.out.println("8. Salir del juego");
+            Print.azul("Bienvenido a la base espacial");
+            Print.negro("Seleccione alguna de las siguientes opciones!");
+            Print.keyAzul("1. ", "Viajar a un planeta");
+            Print.keyAzul("2. ", "Ver bodega de carga");
+            Print.keyAzul("3. ", "Vender recursos");
+            Print.keyAzul("4. ", "Ver misiones disponibles");
+            Print.keyAzul("5. ", "Entregar recursos para una misión");
+            Print.keyAzul("6. ", "Reparar nave");
+            Print.keyAzul("7. ", "Descansar");
+            Print.keyAzul("8. ", "Salir del juego");
             opc = e.ingresarEntero(1,8);
         }
         return opc;

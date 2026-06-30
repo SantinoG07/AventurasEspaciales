@@ -1,4 +1,5 @@
 package Utilities;
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,15 +12,16 @@ public class InputHandler {
         boolean error = false;
         do {
             error = false;
-            System.out.println("Ingrese una opción entre "+min+" y "+max+":");
+            System.out.println("Ingrese una opción entre "+Colors.GREEN+min+ Colors.RESET+ " y "+ Colors.GREEN+max+Colors.RESET);
+
             try {
                 opc = s.nextInt();
                 if(opc<min || opc>max){
-                    System.out.println("Opción inválida, el número debe estar entre "+min+" y "+max+". Intente nuevamente.");
+                    Print.rojo("Opción inválida, el número debe estar entre "+min+" y "+max+". Intente nuevamente.");
                     error = true;
                 }
             } catch(InputMismatchException e){
-                System.out.println("El dato ingresado debe ser un número, intente nuevamente.");
+                Print.rojo("El dato ingresado debe ser un número, intente nuevamente.");
                 error = true;
             } finally {
                 s.nextLine();
