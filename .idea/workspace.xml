@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc5e3e58-2dc0-4398-8990-251291a32f6f" name="Changes" comment="Commit Inicial">
-      <change afterPath="$PROJECT_DIR$/src/Utilities/Colors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utilities/Print.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enums/PlanetType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enums/PlanetType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/CargoHold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/CargoHold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Planet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SpaceBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/InputHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -50,7 +47,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:SantinoG07/AventurasEspaciales.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/SantinoG07/AventurasEspaciales&quot;,
     &quot;accountId&quot;: &quot;40f8c73d-c8ed-4df5-b0a9-7d80cf02d308&quot;
   }
 }</component>
@@ -73,7 +70,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/santino/Downloads/aventurasEspaciales&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/santino/IdeaProjects/JasinskiPractica/AventurasEspaciales&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;/home/santino/IdeaProjects/JasinskiPractica/aventurasEspaciales/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,

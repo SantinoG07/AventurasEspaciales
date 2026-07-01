@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class CargoHold {
     private int espacioNaveInicial;
-    private ArrayList<Resource> resources;
+    private ArrayList<Resource> resources = new ArrayList<Resource>();
     private int espacioUsado=0;
     CargoHold(int espacioNave){
 

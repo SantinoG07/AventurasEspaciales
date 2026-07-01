@@ -7,7 +7,7 @@ import Utilities.InputHandler;
 
 public class Planet {
     private PlanetType planeta;
-    private Resource[] recursosGenerados;
+    private Resource recursoGenerado;
 
     public Planet(PlanetType planeta){
         this.planeta = planeta;
@@ -17,14 +17,16 @@ public class Planet {
     //FUNCIONES DE PLANET.
     public Resource generarRecurso(){
         int prob= Random.generarEntero(100);
-        if(prob<= planeta.getProbabilidades()[0]){
-            return planeta.getRecursos()[0];
-        } else if (prob<= planeta.getProbabilidades()[1]) {
-            return planeta.getRecursos()[1];
-        } else if (prob<= planeta.getProbabilidades()[2]) {
-            return planeta.getRecursos()[2];
+
+        if(prob>=planeta.getProbabilidades()[0]&&prob<=planeta.getProbabilidades()[2]){
+            recursoGenerado = planeta.getRecursos()[1];
+        }else if (prob<=planeta.getProbabilidades()[0]){
+            recursoGenerado = planeta.getRecursos()[0];
+        }else {
+            recursoGenerado = planeta.getRecursos()[2];
         }
-        return null;
+
+        return recursoGenerado;
     }
 
     public int mostrarMenu(InputHandler e){

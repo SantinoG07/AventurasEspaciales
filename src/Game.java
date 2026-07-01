@@ -111,9 +111,10 @@ public class Game {
             case 1:
                 int energiaNecesaria = Random.generarEntero(10,25);
                 if(player.getEnergia()-energiaNecesaria>0){
-                    Print.rojo(planet.generarRecurso().getNombre());
                     Resource rec = planet.generarRecurso();
-                    if(rec.getPeso() + ship.getBodega().getEspacioUsado() > ship.getBodega().getEspacioNaveInicial()){
+                    Print.rojo(rec.getNombre());
+                    Print.rojo(Integer.toString(rec.getPeso()) );
+                    if(rec.getPeso() + ship.getBodega().getEspacioUsado() < ship.getBodega().getEspacioNaveInicial()){
                         player.minar(energiaNecesaria);
                         ship.almacenarRecurso(rec);
                         System.out.println("Recurso recolectado! "+rec.getNombre());
