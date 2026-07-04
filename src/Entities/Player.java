@@ -1,6 +1,7 @@
 package Entities;
 
-import Enums.MissionsType;
+import Missions.Mission;
+import ships.Ship;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ public class Player {
     private String nombre;
     private int energia=100, creditos = 0;
     private Ship ship;
-    private ArrayList<MissionsType> missions = new ArrayList<>();
+    private ArrayList<Mission> missions = new ArrayList<>();
 
     public Player(String nombre) {
         this.nombre = nombre;
@@ -37,18 +38,18 @@ public class Player {
 
     public int getCreditos() {return creditos;}
 
-    public ArrayList<MissionsType> getMission(){return missions;}
+    public ArrayList<Mission> getMission(){return missions;}
 
     public void mostrarDatosFinales() {
         System.out.println("Nombre del jugador: " + nombre);
-        System.out.println("Nave utilizada: " + ship.getNave().getNombre());
+        System.out.println("Nave utilizada: " + ship.getNombre());
         System.out.println("Créditos obtenidos: " + creditos);
         System.out.println("Recursos en la bodega");
         for (int i = 0; i < ship.getBodega().getRecursos().size(); i++){
             System.out.println((i + 1) + ship.getBodega().getRecursos().get(i).getNombre());
         }
         System.out.println("Misiones completadas: ");
-        for (MissionsType m :missions)
+        for (Mission m :missions)
             if(m.getMisionPendiente())
                 System.out.println(m.getNombreMision());
 

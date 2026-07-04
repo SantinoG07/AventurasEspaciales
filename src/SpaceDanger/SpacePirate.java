@@ -1,8 +1,8 @@
 package SpaceDanger;
 
-import Entities.Ship;
 import Enums.Velocity;
 import Utilities.Random;
+import ships.Ship;
 
 public class SpacePirate extends SpaceDanger{
 
@@ -13,7 +13,7 @@ public class SpacePirate extends SpaceDanger{
 
     private static int calcularDanio(Ship nave) {
         int danio = Random.generarEntero(3, 15);
-        if(nave.getNave().getVelocidad() == Velocity.ALTA) danio *= 2;
+        if(nave.getVelocity() == Velocity.ALTA) danio *= 2;
         return danio;
     }
 

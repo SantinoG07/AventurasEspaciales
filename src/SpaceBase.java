@@ -1,10 +1,10 @@
 import Entities.CargoHold;
 import Entities.Player;
-import Entities.Ship;
-import Enums.MissionsType;
-import Enums.Resource;
+import Missions.Mission;
+import Resources.Resource;
 import Utilities.InputHandler;
 import Utilities.Print;
+import ships.Ship;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,9 +41,9 @@ public class SpaceBase {
     }
 
     private boolean chequearVictoria(Player player) {
-        ArrayList<MissionsType> missions = player.getMission();
+        ArrayList<Mission> missions = player.getMission();
         int cantCompletada = 0;
-        for (MissionsType m :missions) {
+        for (Mission m :missions) {
             if(m.getMisionPendiente()) cantCompletada++;
         }
         return cantCompletada == 3;
@@ -92,28 +92,28 @@ public class SpaceBase {
         }
     }
 
-    public static void mostrarMisiones(Player player){
-        for (int i = 0; i < MissionsType.values().length; i++) {
+    public static void mostrarMisiones(Player player, Mission[] missions){
+        for (int i = 0; i < missions.length; i++) {
             System.out.println(i+ ". "+ player.getMission().get(i).getNombreMision());
-            System.out.println("/t-"+ MissionsType.values()[i]+" "+ player.getMission().get(i).getCantidadResources());
+            System.out.println("/t-"+ missions[i]+" "+ player.getMission().get(i).getCantidadResources());
             System.out.println("Recompensa: "+player.getMission().get(i).getRecompensa());
             System.out.println("Estado: " + (player.getMission().get(i).getMisionPendiente() ? "Pendiente" : "Completada"));
         }
     }
 
-    public static void entregarRecursosMision(Player player, InputHandler input){
+    public static void entregarRecursosMision(Player player, InputHandler input, Mission[] missions){
         int opc=0;
         do{
             System.out.println("Seleccione la mision que quiera entregar recursos");
-            mostrarMisiones(player);
-            int indexMission = input.ingresarEntero(1,MissionsType.values().length);
+            mostrarMisiones(player, missions);
+            int indexMission = input.ingresarEntero(1, missions.length);
             if(!player.getMission().get(indexMission).getMisionPendiente()){
                 System.out.println("La mision seleccionada ya ha sido completada!");
             }else{
-                if(verificarResourcesDisponibles(player, MissionsType.values()[indexMission])){
+                if(verificarResourcesDisponibles(player, missions[indexMission])){
                     player.recibirCreditos(player.getMission().get(indexMission).getRecompensa());
                     player.marcarMisionCompletada(indexMission);
-                    eliminarRecursosMission(indexMission);
+                    eliminarRecursosMission(indexMission, missions);
                     System.out.println("Mision completada con exito!");
                 };
             }
@@ -122,10 +122,10 @@ public class SpaceBase {
         }while(opc!=2);
     }
 
-    private static void eliminarRecursosMission(int indexMission){
-        for (int i = 0; i < MissionsType.values()[indexMission].getResources().length; i++) {
-            int cantidadEliminar = MissionsType.values()[indexMission].getCantidadResources()[i];
-            Resource resourceEliminar = MissionsType.values()[indexMission].getResources()[i];
+    private static void eliminarRecursosMission(int indexMission, Mission[] missions){
+        for (int i = 0; i < missions[indexMission].getResources().length; i++) {
+            int cantidadEliminar = missions[indexMission].getCantidadResources()[i];
+            Resource resourceEliminar = missions[indexMission].getResources()[i];
             for (int j = 0; j < cantidadEliminar; j++) {
                 int indexEliminar = ship.getBodega().getRecursos().indexOf(resourceEliminar);
                 ship.getBodega().eliminarRecurso(indexEliminar);
@@ -133,7 +133,7 @@ public class SpaceBase {
         }
     };
 
-    private static boolean verificarResourcesDisponibles(Player player, MissionsType mission){
+    private static boolean verificarResourcesDisponibles(Player player, Mission mission){
         HashMap<Resource, Integer> cantidades = ship.getBodega().contabilizacionResources();
 
         for (int i = 0; i < mission.getResources().length; i++) {

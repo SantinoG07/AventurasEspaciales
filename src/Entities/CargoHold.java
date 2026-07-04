@@ -1,6 +1,6 @@
 package Entities;
 
-import Enums.Resource;
+import Resources.Resource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ public class CargoHold {
     private int espacioNaveInicial;
     private ArrayList<Resource> resources = new ArrayList<Resource>();
     private int espacioUsado=0;
-    CargoHold(int espacioNave){
+    public CargoHold(int espacioNave){
 
     this.espacioNaveInicial = espacioNave;
     this.espacioUsado = 0;}

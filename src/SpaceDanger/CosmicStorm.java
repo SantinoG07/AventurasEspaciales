@@ -1,8 +1,7 @@
 package SpaceDanger;
 
-import Entities.Ship;
-import Enums.Velocity;
 import Utilities.Random;
+import ships.Ship;
 
 public class CosmicStorm extends SpaceDanger{
 

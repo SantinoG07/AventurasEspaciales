@@ -1,6 +1,6 @@
 package SpaceDanger;
 
-import Entities.Ship;
+import ships.Ship;
 
 public class SpaceDanger {
     protected String nombre;
