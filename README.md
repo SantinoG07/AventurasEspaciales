@@ -2,23 +2,23 @@
 
 Proyecto integrador desarrollado en Java.
 
-El game propone una aventura espacial donde el player controla a un explorador que viaja por diferentes planetas, recolecta resources, enfrenta peligros del espacio y completa misiones para reparar una estación espacial dañada.
+El game propone una aventura espacial donde el jugador controla a un explorador que viaja por diferentes planetas, recolecta recursos, enfrenta peligros del espacio y completa misiones para reparar una estación espacial dañada.
 
-El objetivo principal es completar todas las misiones antes de que la ship sea destruida.
+El objetivo principal es completar todas las misiones antes de que la nave sea destruida.
 
 ---
 
 ## Características principales
 
-* Creación de player con nombre personalizado.
+* Creación de jugador con nombre personalizado.
 * Elección entre distintas naves espaciales.
-* Sistema de energía para el player.
-* Sistema de vida y reparación para la ship.
+* Sistema de energía para el jugador.
+* Sistema de vida y reparación para la nave.
 * Viajes a distintos planetas.
-* Recolección aleatoria de resources mediante minería.
-* Entities.CargoHold de carga con capacidad limitada.
-* Venta de resources para obtener créditos.
-* Misiones de entrega de resources.
+* Recolección aleatoria de recursos mediante minería.
+* Entidades.Bodega de carga con capacidad limitada.
+* Venta de recursos para obtener créditos.
+* Misiones de entrega de recursos.
 * Hazards espaciales durante los viajes.
 * Condiciones de victoria, derrota y salida voluntaria.
 * Validación de datos ingresados por consola.
@@ -27,40 +27,40 @@ El objetivo principal es completar todas las misiones antes de que la ship sea d
 
 ## Naves disponibles
 
-| Entities.Ship     | Velocidad | Capacidad de carga | Vida inicial |
+| Entidades.Ship     | Velocidad | Capacidad de carga | Vida inicial |
 | -------- | --------: | -----------------: | -----------: |
 | Fénix    |      Alta |       50 toneladas |         100% |
 | Eclipse  |     Media |      100 toneladas |         100% |
 | Galaxian |      Baja |      150 toneladas |         100% |
 
-La velocity de la ship influye en la probabilidad de sufrir peligros espaciales durante los viajes.
+La velocity de la nave influye en la probabilidad de sufrir peligros espaciales durante los viajes.
 
 ---
 
-## Estado inicial del player
+## Estado inicial del jugador
 
-Al comenzar el game, el player tendrá:
+Al comenzar el game, el jugador tendrá:
 
 * Energía: `100%`
 * Créditos espaciales: `0`
-* Una ship elegida por el usuario
-* Vida de la ship: `100%`
-* Entities.CargoHold vacía
+* Una nave elegida por el usuario
+* Vida de la nave: `100%`
+* Entidades.Bodega vacía
 
-Antes de mostrar el menú, el programa informa el estado actual del player y de su ship.
+Antes de mostrar el menú, el programa informa el estado actual del jugador y de su nave.
 
 ---
 
 ## Menú principal
 
-Desde la base espacial, el player puede realizar las siguientes acciones:
+Desde la base espacial, el jugador puede realizar las siguientes acciones:
 
 1. Viajar a un planeta.
-2. Ver la cargoHold de carga.
-3. Vender resources.
+2. Ver la bodega de carga.
+3. Vender recursos.
 4. Ver misiones disponibles.
-5. Entregar resources para una misión.
-6. Reparar ship.
+5. Entregar recursos para una misión.
+6. Reparar nave.
 7. Descansar.
 8. Salir del game.
 
@@ -68,9 +68,9 @@ Desde la base espacial, el player puede realizar las siguientes acciones:
 
 ## Planetas disponibles
 
-El player puede viajar a tres tipos de planetas:
+El jugador puede viajar a tres tipos de planetas:
 
-### Entities.Planet rocoso
+### Entidades.Planet rocoso
 
 | Recurso           | Probabilidad |
 | ----------------- | -----------: |
@@ -78,7 +78,7 @@ El player puede viajar a tres tipos de planetas:
 | Cristal           |          25% |
 | Núcleo energético |          15% |
 
-### Entities.Planet gaseoso
+### Entidades.Planet gaseoso
 
 | Recurso | Probabilidad |
 | ------- | -----------: |
@@ -86,7 +86,7 @@ El player puede viajar a tres tipos de planetas:
 | Plasma  |          25% |
 | Cristal |          15% |
 
-### Entities.Planet volcánico
+### Entidades.Planet volcánico
 
 | Recurso           | Probabilidad |
 | ----------------- | -----------: |
@@ -108,42 +108,42 @@ El player puede viajar a tres tipos de planetas:
 | Obsidiana         | 25 toneladas |    50 créditos |
 | Núcleo energético | 40 toneladas |    80 créditos |
 
-Cada vez que el player mina:
+Cada vez que el jugador mina:
 
 * Se consume entre `10%` y `25%` de energía.
-* Se genera un resource según las probabilidades del planeta actual.
+* Se genera un recursos según las probabilidades del planeta actual.
 * Si no hay energía suficiente, no se puede minar.
-* Si el resource no entra en la cargoHold, se pierde, pero la energía utilizada no se recupera.
+* Si el recursos no entra en la bodega, se pierde, pero la energía utilizada no se recupera.
 
 ---
 
-## Entities.CargoHold de carga
+## Entidades.Bodega de carga
 
-La ship cuenta con una cargoHold para almacenar los resources recolectados.
+La nave cuenta con una bodega para almacenar los recursos recolectados.
 
-La cargoHold utiliza un `ArrayList` y permite:
+La bodega utiliza un `ArrayList` y permite:
 
-* Almacenar resources.
-* Mostrar los resources disponibles.
+* Almacenar recursos.
+* Mostrar los recursos disponibles.
 * Calcular el peso total ocupado.
-* Verificar si un resource entra según la capacidad máxima.
-* Retirar resources al venderlos o entregarlos en una misión.
+* Verificar si un recursos entra según la capacidad máxima.
+* Retirar recursos al venderlos o entregarlos en una misión.
 
-Si no hay resources almacenados, el programa informa que la cargoHold está vacía.
+Si no hay recursos almacenados, el programa informa que la bodega está vacía.
 
 ---
 
-## Venta de resources
+## Venta de recursos
 
-Desde la base espacial, el player puede vender:
+Desde la base espacial, el jugador puede vender:
 
-* Un resource específico.
-* Todos los resources almacenados.
+* Un recursos específico.
+* Todos los recursos almacenados.
 
-Al vender un resource:
+Al vender un recursos:
 
-1. Se elimina de la cargoHold.
-2. El player recibe créditos según el valor del resource.
+1. Se elimina de la bodega.
+2. El jugador recibe créditos según el valor del recursos.
 
 ---
 
@@ -180,11 +180,11 @@ Al vender un resource:
 
 **Recompensa:** `250 créditos espaciales`
 
-Una misión solo puede completarse si todos los resources requeridos se encuentran en la cargoHold.
+Una misión solo puede completarse si todos los recursos requeridos se encuentran en la bodega.
 
 Al completar una misión:
 
-* Se retiran los resources entregados.
+* Se retiran los recursos entregados.
 * Se suman los créditos de recompensa.
 * La misión queda marcada como completada.
 * No puede completarse nuevamente.
@@ -193,9 +193,9 @@ Al completar una misión:
 
 ## Hazards espaciales
 
-Cada vez que el player viaja a un planeta, existe la posibilidad de sufrir un peligro espacial.
+Cada vez que el jugador viaja a un planeta, existe la posibilidad de sufrir un peligro espacial.
 
-| Velocidad de la ship | Probabilidad de peligro |
+| Velocidad de la nave | Probabilidad de peligro |
 | -------------------- | ----------------------: |
 | Alta                 |                     20% |
 | Media                |                     40% |
@@ -206,33 +206,33 @@ Los peligros posibles son:
 ### Pirata espacial
 
 * Produce entre `3%` y `15%` de daño.
-* Si la ship tiene velocity alta, el daño se duplica.
+* Si la nave tiene velocity alta, el daño se duplica.
 
 ### Renegado
 
 * Produce entre `3%` y `15%` de daño.
-* Si la ship tiene velocity baja, el daño se duplica.
+* Si la nave tiene velocity baja, el daño se duplica.
 
 ### Tormenta cósmica
 
 * Produce entre `5%` y `20%` de daño.
-* Afecta a cualquier ship por igual.
+* Afecta a cualquier nave por igual.
 
-Si la vida de la ship llega a `0%`, el player pierde la partida.
+Si la vida de la nave llega a `0%`, el jugador pierde la partida.
 
 ---
 
 ## Reparación y descanso
 
-### Reparar ship
+### Reparar nave
 
 * Cada tramo de `10%` de vida cuesta `25 créditos espaciales`.
 * No se puede reparar por encima del `100%`.
-* Si el player no tiene créditos suficientes, no podrá reparar la ship.
+* Si el jugador no tiene créditos suficientes, no podrá reparar la nave.
 
 ### Descansar
 
-* Recupera la energía del player al `100%`.
+* Recupera la energía del jugador al `100%`.
 
 ---
 
@@ -240,23 +240,23 @@ Si la vida de la ship llega a `0%`, el player pierde la partida.
 
 ### Victoria
 
-El player gana al completar las tres misiones de entrega.
+El jugador gana al completar las tres misiones de entrega.
 
 ### Derrota
 
-El player pierde si la vida de la ship llega a `0%`.
+El jugador pierde si la vida de la nave llega a `0%`.
 
 ### Salida voluntaria
 
-El player puede finalizar la partida desde el menú principal.
+El jugador puede finalizar la partida desde el menú principal.
 
 Al terminar el game se muestra un resumen con:
 
-* Nombre del player.
-* Entities.Ship utilizada.
+* Nombre del jugador.
+* Entidades.Ship utilizada.
 * Créditos obtenidos.
 * Misiones completadas.
-* Recursos restantes en la cargoHold.
+* Recursos restantes en la bodega.
 * Resultado final de la partida.
 
 ---
@@ -270,7 +270,7 @@ Al terminar el game se muestra un resumen con:
 * Uso de herencia.
 * Uso de polimorfismo.
 * Uso de `enum` para representar la velocity de las naves.
-* Uso de `ArrayList` para la cargoHold de carga.
+* Uso de `ArrayList` para la bodega de carga.
 * Validación de datos ingresados por el usuario.
 * Control de límites de energía, vida y carga.
 * Clase de utilidad con métodos estáticos para validaciones y números aleatorios.
@@ -283,15 +283,15 @@ Al terminar el game se muestra un resumen con:
 src/
 ├── Main.java
 ├── modelo/
-│   ├── Entities.Player.java
-│   ├── Entities.Ship.java
+│   ├── Entidades.Jugador.java
+│   ├── Entidades.Ship.java
 │   ├── Fenix.java
 │   ├── Eclipse.java
 │   ├── Galaxian.java
-│   ├── Entities.CargoHold.java
+│   ├── Entidades.Bodega.java
 │   ├── Recurso.java
-│   ├── Entities.Mision.java
-│   ├── Entities.Planet.java
+│   ├── Entidades.Mision.java
+│   ├── Entidades.Planet.java
 │   ├── PeligroEspacial.java
 │   └── Velocidad.java
 ├── servicio/
