@@ -15,8 +15,5 @@ public class Print {
     public static void keyVerde(String key, Object valor){
         System.out.println(Colors.GREEN + key + Colors.RESET + valor);
     }
-    public static void clean(){System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
 }

@@ -52,6 +52,7 @@ public class Bodega {
         for(Recursos r : recursos){
             precioBodega += r.getValorVenta();
         }
+        this.espacioUsado = 0;
         recursos.clear();
         return precioBodega;
     }

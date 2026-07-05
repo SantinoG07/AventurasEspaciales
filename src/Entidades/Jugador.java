@@ -16,7 +16,7 @@ public class Jugador {
     //FUNCIONES DE PLAYER.
     public void descansar(){this.energia = 100;}
 
-    public void restarCreditos(int saldoRestar){this.creditos += saldoRestar;};
+    public void restarCreditos(int saldoRestar){this.creditos -= saldoRestar;};
 
     public void minar(int energia){this.energia -=energia;}
 

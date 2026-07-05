@@ -123,6 +123,21 @@ public class Main {
                 entrada.esperarEnter();
                 break;
             case 9:
+                final int PRECIO_MEJORA_NAVE = 10000;
+                Print.azul("La mejora disponible es:" + nave.getNombreMejora());
+                Print.verde("Mejorar nave:" + PRECIO_MEJORA_NAVE + " creditos");
+                Print.rojo("Desea continuar?(1.Si/2.No)");
+                int continuar = entrada.ingresarEntero(1, 2);
+                if(continuar == 1 && jugador.getCreditos() >= PRECIO_MEJORA_NAVE){
+                    jugador.restarCreditos(PRECIO_MEJORA_NAVE);
+                    nave.mejorarNave();
+                } else {
+                    Print.rojo("No tienes suficientes créditos para mejorar la nave.");
+                }
+                Print.verde("Nave mejorada con exito!");
+                entrada.esperarEnter();
+                break;
+            case 10:
                 System.out.println("Resultado: Salida voluntaria");
                 return true;
         }
@@ -203,6 +218,10 @@ public class Main {
         Print.naranja("Seleccione su nave para la aventura!");
         for (int i = 0; i < naves.length; i++) {
             Print.keyVerde((i+1)+ ". ", naves[i].getNombre());
+            Print.keyAzul("Velocidad: " , naves[i].getVelocity());
+            Print.keyAzul("Vida: " , naves[i].getVida());
+            Print.keyAzul("Capacidad de carga: " , naves[i].getCapacidadCarga());
+            System.out.println();
         }
         return switch (entrada.ingresarEntero(1, naves.length)-1) {
             case 1 -> naves[1];

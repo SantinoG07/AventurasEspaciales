@@ -6,17 +6,18 @@ import Recursos.Recursos;
 
 public class Nave {
 
-    protected String nombre;
+    protected String nombre, nombreMejora;
     protected Velocity velocity;
     protected int capacidadCarga;
     protected int vida=100;
     protected Bodega bodega;
 
-    public Nave(String nombre, Velocity velocity, int capacidadCarga) {
+    public Nave(String nombre, Velocity velocity, int capacidadCarga, String nombreMejora) {
         this.nombre =nombre;
         this.velocity = velocity;
         this.capacidadCarga = capacidadCarga;
         this.bodega = new Bodega(capacidadCarga);
+        this.nombreMejora = nombreMejora;
     }
 
 
@@ -31,6 +32,20 @@ public class Nave {
         this.vida -= hacerdanio;
     }
 
+    public void setCapacidadCarga(int capacidad) {
+        this.capacidadCarga = capacidad;
+    }
+
+    public void setVelocity(Velocity velocity) {
+        this.velocity = velocity;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+
+
 
     //GETTERS.
     public String getNombre() {return nombre;}
@@ -42,4 +57,8 @@ public class Nave {
     public int getVida() {return vida;}
 
     public Bodega getBodega(){return bodega;}
+
+    public String getNombreMejora() {return nombreMejora;}
+
+    public void mejorarNave() {}
 }

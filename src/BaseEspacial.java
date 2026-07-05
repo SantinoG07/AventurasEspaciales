@@ -24,7 +24,7 @@ public class BaseEspacial {
     public int mostrarMenu(Entradas e, Mision[] misiones){
         int opc = 0;
         if(chequearVictoria(misiones)){
-            opc = 9;
+            opc = 10;
         } else {
             Print.azul("Bienvenido a la base espacial");
             Print.negro("Seleccione alguna de las siguientes opciones!");
@@ -36,8 +36,9 @@ public class BaseEspacial {
             Print.keyAzul("6. ", "Reparar nave");
             Print.keyAzul("7. ", "Descansar");
             Print.keyAzul("8. ", "Mostrar informacion actual");
-            Print.keyAzul("9. ", "Salir del juego");
-            opc = e.ingresarEntero(1,9);
+            Print.keyAzul("9. ", "Mejorar nave");
+            Print.keyAzul("10. ", "Salir del juego");
+            opc = e.ingresarEntero(1,10);
         }
         return opc;
     }
@@ -103,7 +104,7 @@ public class BaseEspacial {
         for (int i = 0; i < misions.length; i++) {
             Print.keyAzul((i+1)+ ". ", misions[i].getNombreMision());
             for (int j = 0; j < misions[i].getResources().length; j++) {
-                Print.keyAzul("\t - ",  misions[i].getResources()[j].getNombre());
+                Print.keyAzul("\t - ",  misions[i].getResources()[j].getNombre()+" ("+misions[i].getCantidadResources()[j]+")");
             }
             Print.keyAzul("Recompensa: ", misions[i].getRecompensa());
             Print.keyAzul("Estado: " , (misions[i].getMisionPendiente() ? "Pendiente" : "Completada"));

@@ -7,48 +7,17 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc5e3e58-2dc0-4398-8990-251291a32f6f" name="Changes" comment="Todo funciona a la perfeccion, sin errores y con la funcionalidad correcta">
-      <change afterPath="$PROJECT_DIR$/src/Misiones/NucleoEnergiaPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Misiones/ReparacionCascoExterior.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PeligroEspacial/TormentaCosmica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Planetas/PlanetaGaseoso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Planetas/PlanetaRocoso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Planetas/PlanetaVolcanico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Recursos/Cristal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Recursos/MineralComun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Recursos/NucleoEnergetico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Recursos/Obsidiana.java" afterDir="false" />
+    <list default="true" id="fc5e3e58-2dc0-4398-8990-251291a32f6f" name="Changes" comment="Cambio de nombres, mejora en la legibilidad del codigo y error de pequenos bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/CargoHold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Bodega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BaseEspacial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BaseEspacial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Bodega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Bodega.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Missions/ExternalHullRepair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Missions/Mission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Misiones/Mision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Missions/PrimaryEnergyCore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Missions/ReactorStabilization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Misiones/EstabilizacionReactor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Planets/GasPlanet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Planets/Planet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Planetas/Planeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Planets/RockyPlanet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Planets/VolcanicPlanet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/CommonMineral.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Crystal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/EnergyCore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Gas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursos/Gas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Lava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursos/Lava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Obsidian.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Plasma.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursos/Plasma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursos/Recursos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BaseEspacial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceDanger/CosmicStorm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceDanger/Renegade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeligroEspacial/Renegado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceDanger/SpaceDanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeligroEspacial/PeligroEspacial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SpaceDanger/SpacePirate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeligroEspacial/PirataEspacial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/Entradas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ships/Eclipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Eclipse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ships/Fenix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Fenix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ships/Galaxian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Galaxian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ships/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Naves/Eclipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Eclipse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Naves/Fenix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Fenix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Naves/Galaxian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Galaxian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Naves/Nave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Naves/Nave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/Print.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/Print.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,25 +89,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "copilot.chat.legacySessionMetadata.migrated": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/santino/Santino/JasinskiFinal/AventurasEspaciales",
-    "onboarding.tips.debug.path": "/home/santino/IdeaProjects/JasinskiPractica/aventurasEspaciales/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/santino/Santino/JasinskiFinal/AventurasEspaciales&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/santino/IdeaProjects/JasinskiPractica/aventurasEspaciales/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -164,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783268383988</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Cambio de nombres, mejora en la legibilidad del codigo y error de pequenos bugs">
+      <option name="closed" value="true" />
+      <created>1783275553705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1783275553705</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit Inicial" />
     <MESSAGE value="Todo funciona a la perfeccion, sin errores y con la funcionalidad correcta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todo funciona a la perfeccion, sin errores y con la funcionalidad correcta" />
+    <MESSAGE value="Cambio de nombres, mejora en la legibilidad del codigo y error de pequenos bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio de nombres, mejora en la legibilidad del codigo y error de pequenos bugs" />
   </component>
 </project>
