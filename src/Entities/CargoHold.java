@@ -1,6 +1,7 @@
 package Entities;
 
 import Resources.Resource;
+import Utilities.Print;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,15 +24,22 @@ public class CargoHold {
     }
 
     public void eliminarRecurso(int index){
+        this.espacioUsado = espacioUsado-resources.get(index).getPeso();
         resources.remove(resources.get(index));
+
     }
 
-    public void mostrarRecursos(){
+    public void mostrarRecursos(Boolean mostrarIndex){
         if(espacioUsado!=0){
-            for (Resource r: resources){
-                System.out.println(r.getNombre());
+            if(!mostrarIndex){
+                for (Resource r: resources){
+                    Print.azul(r.getNombre());
+                }
+            }else{
+                for (int i = 0; i < resources.size(); i++) {
+                    Print.keyAzul(i+1+". ", resources.get(i).getNombre());
+                }
             }
-
         }else{
             System.out.println("La bodega se encuentra vacia");
         }
@@ -41,8 +49,8 @@ public class CargoHold {
         int precioBodega = 0;
         for(Resource r : resources){
             precioBodega += r.getValorVenta();
-            resources.remove(r);
         }
+        resources.clear();
         return precioBodega;
     }
     

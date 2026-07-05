@@ -32,6 +32,7 @@ public class Ship {
         this.vida -= hacerdanio;
     }
 
+
     //GETTERS.
     //public ShipType getNave() {return nave;}
 

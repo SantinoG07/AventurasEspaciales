@@ -14,4 +14,6 @@ public class SpaceDanger {
     public void atacarNave(Ship nave){
         nave.recibirDanio(danioInflingido);
     }
+
+    public int getDanioInflingido(){return danioInflingido;}
 }

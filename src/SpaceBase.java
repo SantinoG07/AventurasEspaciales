@@ -23,7 +23,7 @@ public class SpaceBase {
     public int mostrarMenu(InputHandler e){
         int opc = 0;
         if(chequearVictoria(player)){
-            opc = 8;
+            opc = 9;
         } else {
             Print.azul("Bienvenido a la base espacial");
             Print.negro("Seleccione alguna de las siguientes opciones!");
@@ -34,8 +34,9 @@ public class SpaceBase {
             Print.keyAzul("5. ", "Entregar recursos para una misión");
             Print.keyAzul("6. ", "Reparar nave");
             Print.keyAzul("7. ", "Descansar");
-            Print.keyAzul("8. ", "Salir del juego");
-            opc = e.ingresarEntero(1,8);
+            Print.keyAzul("8. ", "Mostrar informacion actual");
+            Print.keyAzul("9. ", "Salir del juego");
+            opc = e.ingresarEntero(1,9);
         }
         return opc;
     }
@@ -72,49 +73,60 @@ public class SpaceBase {
     }
 
     public static void venderRecurso(CargoHold cargoHold, InputHandler e, Player player){
-        System.out.printf("Bienvenido al mercado");
-        System.out.println("Ingrese una de las siguientes opciones!");
-        System.out.println("1. Vender un recurso espcífico");
-        System.out.println("2. Vender todos los recursos");
-        int op = e.ingresarEntero(1, 2);
-        if(op ==1 ){
-            Resource resource;
-            System.out.println("Seleccione un recurso a vender");
-            for (int i = 0; i < cargoHold.getRecursos().size(); i++) {
-                System.out.println((i+1)+". "+ cargoHold.getRecursos().get(i));
+        System.out.println("Bienvenido al mercado");
+        if(cargoHold.getEspacioUsado()!=0){
+            System.out.println("Ingrese una de las siguientes opciones!");
+            System.out.println("1. Vender un recurso espcífico");
+            System.out.println("2. Vender todos los recursos");
+            int op = e.ingresarEntero(1, 2);
+            if(op ==1 ){
+                System.out.println("Seleccione un recurso a vender");
+                ship.getBodega().mostrarRecursos(true);
+                int index = e.ingresarEntero(1, cargoHold.getRecursos().size())-1;
+                player.recibirCreditos(cargoHold.getRecursos().get(index).getValorVenta());
+                cargoHold.eliminarRecurso(index);
+                Print.azul("Vendido con exito!");
+                e.esperarEnter();
+            } else {
+                int precioBodega = cargoHold.vaciarBodega();
+                player.recibirCreditos(precioBodega);
+                Print.azul("Vendido con exito!");
+                e.esperarEnter();
             }
-            int index = e.ingresarEntero(0, cargoHold.getRecursos().size());
-            player.recibirCreditos(cargoHold.getRecursos().get(index).getValorVenta());
-            cargoHold.eliminarRecurso(index);
-        } else {
-            int precioBodega = cargoHold.vaciarBodega();
-            player.recibirCreditos(precioBodega);
+        }else{
+            Print.rojo("La bodega esta vacia");
+            e.esperarEnter();
         }
     }
 
-    public static void mostrarMisiones(Player player, Mission[] missions){
+    public static void mostrarMisiones(Player player, Mission[] missions, InputHandler e){
         for (int i = 0; i < missions.length; i++) {
-            System.out.println(i+ ". "+ player.getMission().get(i).getNombreMision());
-            System.out.println("/t-"+ missions[i]+" "+ player.getMission().get(i).getCantidadResources());
-            System.out.println("Recompensa: "+player.getMission().get(i).getRecompensa());
-            System.out.println("Estado: " + (player.getMission().get(i).getMisionPendiente() ? "Pendiente" : "Completada"));
+            Print.keyAzul((i+1)+ ". ", missions[i].getNombreMision());
+            for (int j = 0; j < missions[i].getResources().length; j++) {
+                Print.keyAzul("\t - ",  missions[i].getResources()[j].getNombre());
+            }
+            Print.keyAzul("Recompensa: ",missions[i].getRecompensa());
+            Print.keyAzul("Estado: " , (missions[i].getMisionPendiente() ? "Pendiente" : "Completada"));
         }
+        e.esperarEnter();
     }
 
     public static void entregarRecursosMision(Player player, InputHandler input, Mission[] missions){
         int opc=0;
         do{
             System.out.println("Seleccione la mision que quiera entregar recursos");
-            mostrarMisiones(player, missions);
-            int indexMission = input.ingresarEntero(1, missions.length);
-            if(!player.getMission().get(indexMission).getMisionPendiente()){
+            mostrarMisiones(player, missions, input);
+            int indexMission = input.ingresarEntero(1, missions.length)-1;
+            if(!missions[indexMission].getMisionPendiente()){
                 System.out.println("La mision seleccionada ya ha sido completada!");
             }else{
                 if(verificarResourcesDisponibles(player, missions[indexMission])){
-                    player.recibirCreditos(player.getMission().get(indexMission).getRecompensa());
-                    player.marcarMisionCompletada(indexMission);
+                    player.recibirCreditos(missions[indexMission].getRecompensa());
+                    Main.marcarMisionCompletada(indexMission);
                     eliminarRecursosMission(indexMission, missions);
                     System.out.println("Mision completada con exito!");
+                }else{
+                    Print.rojo("Los recursos recolectados no son suficientes para completar la mision");
                 };
             }
             System.out.println("Desea seleccionar otra?(1.Si, 2.No)");

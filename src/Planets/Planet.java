@@ -20,11 +20,11 @@ public class Planet {
         int prob= Random.generarEntero(100);
         Resource recursoGenerado;
 
-        if(prob >= probabilidades[0] && prob <= probabilidades[2]){
-            recursoGenerado = resources[1];
-        }else if (prob <= probabilidades[0]){
+        if(prob<=probabilidades[0]){
             recursoGenerado = resources[0];
-        }else {
+        } else if (prob <= probabilidades[0] + probabilidades[1]) {
+            recursoGenerado = resources[1];
+        } else {
             recursoGenerado = resources[2];
         }
 
